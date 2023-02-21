@@ -48,4 +48,22 @@ public abstract class BibliothequeAbstraite implements BibliothequeInterface {
         // if (this.add(l)) { this.remove(); return false }
         // return true;
     }
+
+    public boolean addAll(BibliothequeInterface b) {
+        Livre curr = b.remove();
+
+        if (curr == null) {
+            return false;
+        }
+
+        boolean rep = this.add(curr);
+        boolean value = this.addAll(b) || rep;
+
+        b.add(curr);
+        return value;
+    }
+
+    public boolean removeAll(BibliothequeInterface b) {
+        return true;
+    }
 }
