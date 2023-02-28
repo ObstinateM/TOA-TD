@@ -36,7 +36,7 @@ public class FileAttente {
   public String listeClientsLocalite() {
     SortedSet<Client> tmp = new TreeSet<Client>(new Comparator<Client>() {
       public int compare(Client c1, Client c2) {
-        // Ici on compare et gg
+        return c1.postal - c2.postal;
       }
     });
     tmp.addAll(clients);
