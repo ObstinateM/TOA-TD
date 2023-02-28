@@ -1,4 +1,4 @@
-public class Livre {
+public class Livre implements Comparable<Livre> {
     int ISBN;
     String titre;
     String auteurs;
@@ -11,5 +11,9 @@ public class Livre {
 
     public boolean equals(Object l) {
         return (l instanceof Livre) && this.ISBN == ((Livre) l).ISBN;
+    }
+
+    public int compareTo(Livre l) {
+        return this.ISBN - l.ISBN;
     }
 }
